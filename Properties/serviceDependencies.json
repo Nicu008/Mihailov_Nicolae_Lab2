@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Mihailov_Nicolae_Laborator2Context"
+    }
+  }
+}
