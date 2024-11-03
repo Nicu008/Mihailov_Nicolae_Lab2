@@ -12,7 +12,13 @@ namespace Mihailov_Nicolae_Laborator2.Models
         public string LastName { get; set; } // Numele autorului
 
         [Display(Name = "Full Name")]
-        public string FullName => FirstName + " " + LastName;
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
 
         // Proprietatea de navigare pentru cărți
         public ICollection<Book>? Books { get; set; }
