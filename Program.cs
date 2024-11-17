@@ -1,12 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Mihailov_Nicolae_Laborator2.Data;
+using Microsoft.AspNetCore.Identity;
+using Mihailov_Nicolae_Laborator2.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<Mihailov_Nicolae_Laborator2Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Mihailov_Nicolae_Laborator2Context") ?? throw new InvalidOperationException("Connection string 'Mihailov_Nicolae_Laborator2Context' not found.")));
+
+builder.Services.AddDbContext<LibraryIdentityContext>(options =>
+
+options.UseSqlServer(builder.Configuration.GetConnectionString("Mihailov_Nicolae_Laborator2Context") ?? 
+    throw new InvalidOperationException("Connection string 'Mihailov_Nicolae_Laborator2Context' not found.")));
+builder.Services.AddDefaultIdentity<Mihailov_Nicolae_Laborator2User>(options =>
+options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<LibraryIdentityContext>();
 
 var app = builder.Build();
 

@@ -16,6 +16,7 @@ namespace Mihailov_Nicolae_Laborator2.Models
         public Publisher? Publisher { get; set; }
         public int? AuthorID { get; set; }
         public Author? Author { get; set; }
+        public ICollection<Borrowing>? Borrowings { get; set; }
         public ICollection<BookCategory>? BookCategories { get; set; }
     }
 }
