@@ -7,6 +7,7 @@ namespace Mihailov_Nicolae_Laborator2.Models
     {
         public int ID { get; set; }
         [Display(Name = "Book Title")]
+        [Required]
         [StringLength(150, MinimumLength = 3)]
         public string Title { get; set; }
         [Column(TypeName = "decimal(6, 2)")]
